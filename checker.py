@@ -18,13 +18,11 @@ for i in range(Pl_sum):
     c2 = name.split("/")[1]
     ask = ccxt.binance().fetch_ticker(Pairlists[i])['ask']
     bid = ccxt.binance().fetch_ticker(Pairlists[i])['bid']
-
     s.append([name, c1, c2, ask, bid, str(datetime.today())[0:19]])
+    
 
-    price = pd.DataFrame(s, columns=["name", "c1", "c2", "ask", "bid", "time"])
-
+price = pd.DataFrame(s, columns=["name", "c1", "c2", "ask", "bid", "time"])
 price = price.set_index("name")
-
 print(price)
 print(Pl_sum)
 
